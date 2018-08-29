@@ -26,3 +26,11 @@ IOC中管理各种Bean对象及其相互关系，Bean对象在Spring中是以Bea
 来进行描述的。
 ![image text](../../image/beans/BeanDefinition.jpg)
 
+Bean的解析过程比较复杂。Bean的解析通过对Spring配置文件的解析。
+![image text](../../image/beans/XmlBeanDefinitionReader.jpg)
+
+##IOC容器的初始化
+IOC容器的初始化包括BeanDefinition的Resource**定位、载入、注册**这三个基本的过程。
+ApplicationContext允许上下文嵌套，通过保持父上下文维持一个上下文体系。对于Bean的
+查找可以在这个上下文体系中发生，首先检查当前上下文，其次是父上下文，逐级向上，
+这样为不同的Spring应用提供了一个共享的Bean定义环境。
